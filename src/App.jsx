@@ -16,8 +16,6 @@ import ResetPassword from './Core/Auth/Components/ResetPassword/ResetPassword';
 import UserContextProvider from './Core/Context/TokenContext';
 import ProtectedRoute from './Core/ProtectedRoute/ProtectedRoute';
 import AuthProtectedRoute from './Core/ProtectedRoute/AuthProtectedRoute';
-// React Queery
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ProductDetails from './Features/Components/ProductDetails/ProductDetails';
 import CartContextProvider from './Core/Context/CartContext';
 import { Toaster } from 'react-hot-toast';
@@ -50,14 +48,12 @@ const routes = createHashRouter([
 function App() {
   return (
     <>
-      <QueryClientProvider client={qoeryClient}>
-        <CartContextProvider>
-          <UserContextProvider>
-            <RouterProvider router={routes}></RouterProvider>
-            <Toaster position="top-right"/>
-          </UserContextProvider>
-        </CartContextProvider>
-      </QueryClientProvider>
+      <CartContextProvider>
+        <UserContextProvider>
+          <RouterProvider router={routes}></RouterProvider>
+          <Toaster position="top-right" />
+        </UserContextProvider>
+      </CartContextProvider>
     </>
   );
 }
