@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom';
 import MasterLayout from './Shared/MasterLayout/MasterLayout';
 import Home from './Features/Components/Home/Home';
 import Products from './Features/Components/Products/Products';
@@ -17,7 +17,7 @@ import UserContextProvider from './Core/Context/TokenContext';
 import ProtectedRoute from './Core/ProtectedRoute/ProtectedRoute';
 import AuthProtectedRoute from './Core/ProtectedRoute/AuthProtectedRoute';
 // React Queery
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ProductDetails from './Features/Components/ProductDetails/ProductDetails';
 import CartContextProvider from './Core/Context/CartContext';
 import { Toaster } from 'react-hot-toast';
@@ -26,7 +26,7 @@ import Orders from './Features/Components/Orders/Orders';
 
 const qoeryClient = new QueryClient()
 
-const routes = createBrowserRouter([
+const routes = createHashRouter([
   {
     path: '', element: <MasterLayout />, children: [
       { path: '', element: <ProtectedRoute><Home /></ProtectedRoute> },
