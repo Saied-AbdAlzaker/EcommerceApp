@@ -22,8 +22,6 @@ import { Toaster } from 'react-hot-toast';
 import Checkout from './Features/Components/Checkout/Checkout';
 import Orders from './Features/Components/Orders/Orders';
 
-const qoeryClient = new QueryClient()
-
 const routes = createHashRouter([
   {
     path: '', element: <MasterLayout />, children: [
